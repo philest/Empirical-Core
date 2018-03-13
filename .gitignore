@@ -43,6 +43,7 @@ activity-sessions*.json
 # React on Rails
 npm-debug.log*
 node_modules
+/public/webpack/*
 
 # Generated js bundles
 /app/assets/webpack/*
@@ -50,7 +51,7 @@ client/node_modules/*
 app/assets/webpack/app-bundle.js
 app/assets/webpack/server-bundle.js
 app/assets/webpack/vendor-bundle.js
-public/weback/*
+public/webpack/*
 
 # Byebug command history file
 .byebug_history
@@ -64,3 +65,6 @@ public/weback/*
 
 # GitBook
 _book/
+/public/packs
+/public/packs-test
+/node_modules
