@@ -53,7 +53,7 @@ const basePlugins = [new webpack.DefinePlugin({
   })];
 
 const plugins = () => {
-  if (devBuild) {
+  if (nodeEnv === 'development') {
     return basePlugins;
   }
   basePlugins.splice(1, 0, new webpack.optimize.UglifyJsPlugin());
