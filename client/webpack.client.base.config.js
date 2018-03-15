@@ -53,8 +53,17 @@ const basePlugins = [new webpack.DefinePlugin({
   })];
 
 const plugins = () => {
+  for (let i = 0; i < 10; i++) {
+    console.log('in plugins');
+  }
   if (nodeEnv === 'development') {
+    for (let i = 0; i < 10; i++) {
+      console.log('in development');
+    }
     return basePlugins;
+  }
+  for (let i = 0; i < 10; i++) {
+    console.log('not in development');
   }
   basePlugins.splice(1, 0, new webpack.optimize.UglifyJsPlugin());
   return basePlugins;
@@ -165,3 +174,7 @@ module.exports = {
     tls: 'empty',
   },
 };
+
+for (let i = 0; i < 10; i++) {
+  console.log(nodeEnv);
+}
