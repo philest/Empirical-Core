@@ -17,7 +17,7 @@ const configPath = resolve('..', 'config');
 const { output, } = webpackConfigLoader(configPath);
 const nodeEnv = devBuild ? 'development' : 'production';
 
-const devPlugins = [new webpack.DefinePlugin({
+const basePlugins = [new webpack.DefinePlugin({
   'process.env': {
     NODE_ENV: JSON.stringify(nodeEnv),
     FIREBASE_API_KEY: JSON.stringify(firebaseApiKey),
@@ -54,9 +54,10 @@ const devPlugins = [new webpack.DefinePlugin({
 
 const plugins = () => {
   if (devBuild) {
-    return devPlugins;
+    return basePlugins;
   }
-  return devPlugins.splice(1, 0, new webpack.optimize.UglifyJsPlugin());
+  basePlugins.splice(1, 0, new webpack.optimize.UglifyJsPlugin());
+  return basePlugins;
 };
 
 module.exports = {
